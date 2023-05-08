@@ -1,0 +1,126 @@
+#Q1. Write a function to compute 5/0 and use try/except to catch the exceptions.
+
+def compute_division():
+    try:
+        result = 5 / 0
+        print(result)
+    except ZeroDivisionError:
+        print("Division by zero error occurred")
+
+compute_division()
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+'''Q2. Write a Python program to access the array element whose index is out of bound and handle
+the corresponding exception'''
+
+arr = [1, 2, 3, 4, 5]
+
+try:
+    index = 5
+    print(arr[index])
+except IndexError:
+    print("Index out of bound error occurred")
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+#Q3. Write a Python Program to handle multiple errors with one except statement
+
+try:
+    x = int(input("Enter a number: "))
+    y = 1 / x
+    z = x + "2"
+except (ZeroDivisionError, TypeError, ValueError) as e:
+    print("Error:", e)
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+#Q4. Write a Python Program to depict else clause with try-except
+
+try:
+    num1 = int(input("Enter a number: "))
+    num2 = int(input("Enter another number: "))
+    result = num1 / num2
+except ValueError:
+    print("Invalid input. Please enter a valid integer.")
+except ZeroDivisionError:
+    print("Cannot divide by zero.")
+else:
+    print("The result is:", result)
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+#Q5. Write a Python Program to depict Raising Exception
+
+def calculate_area(length, breadth):
+    if length <= 0 or breadth <= 0:
+        raise ValueError("Length and breadth should be positive numbers")
+    return length * breadth
+
+try:
+    area = calculate_area(4, -5)
+except ValueError as e:
+    print("Error:", e)
+else:
+    print("Area is:", area)
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+#Q6. Write a python program to create user-defined exception
+
+class MyException(Exception):
+    def __init__(self, message):
+        self.message = message
+
+try:
+    
+    raise MyException("This is my custom exception")
+except MyException as e:
+   
+    print(e.message)
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+#Q7. Print one message if the try block raises a NameError and another for other errors:
+
+try:
+   x = undefined_variable + 5
+except NameError:
+    print("NameError: The variable is not defined.")
+except:
+    print("An error occurred.")
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+#Q8. Try to open and write to a file that is not writable:
+
+filename = "example.txt"
+
+try:
+    with open(filename, "w") as f:
+        f.write("Hello, world!")
+except IOError:
+    print(f"Error: Could not write to file '{filename}'.")
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+#Q9. Write a python program to raise an error and stop the program if x is lower than 0
+
+x = -5
+if x < 0:
+    raise ValueError("x cannot be negative.")
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+#Q10. Write a python program to raise a TypeError if x is not an integer:
+    
+def foo(x):
+    if not isinstance(x, int):
+        raise TypeError("x must be an integer")
+   
+foo("hello")
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+
